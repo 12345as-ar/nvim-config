@@ -5,6 +5,7 @@
 #include <iostream>
 #include <raylib.h>
 
+
 void Keyboard::sendKeys(Text &t) {
   // key repeat stuff
   if (IsKeyReleased(repeatKey)) {
