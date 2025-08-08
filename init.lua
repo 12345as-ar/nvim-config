@@ -22,7 +22,11 @@ end
 vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
 vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
 
-vim.keymap.set('n', '<F5>', require 'dap'.continue)
+vim.keymap.set('n', '<F5>', function()
+  require 'dap'.continue()
+  require ("dapui").open()
+end
+)
 vim.keymap.set('n', '<F10>', require 'dap'.step_over)
 vim.keymap.set('n', '<F11>', require 'dap'.step_into)
 vim.keymap.set('n', '<F12>', require 'dap'.step_out)

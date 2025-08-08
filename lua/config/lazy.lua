@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -26,8 +26,11 @@ require("lazy").setup({
   lazy = true,
   spec = {
     -- import your plugins
-    { "mfussenegger/nvim-dap-python", config = function () require("dap-python").setup("~/python_venv/bin/python3.12") end },
-    { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap" } },
+    { "mfussenegger/nvim-dap-python", config = function() require("dap-python").setup("~/python_venv/bin/python3.12") end },
+    { "rcarriga/nvim-dap-ui",         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },                config = function()
+      require("lazydev").setup({ library = { "nvim-dap-ui" } })
+      require("dapui").setup()
+    end },
     { "nvim-neotest/nvim-nio" },
     { import = "config.plugins" },
   },
@@ -35,7 +38,5 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "tokyonight-night" } },
   -- automatically check for plugin updates
-  checker = { enabled = true , notify = false },
+  checker = { enabled = true, notify = false },
 })
-
-
