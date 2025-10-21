@@ -10,7 +10,7 @@ return {
         pickers = {
           find_files = {
           }
-        },
+       },
         extenxions = {
           fzf = {}
         }

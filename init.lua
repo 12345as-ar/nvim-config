@@ -32,6 +32,7 @@ vim.keymap.set('n', '<F11>', require 'dap'.step_into)
 vim.keymap.set('n', '<F12>', require 'dap'.step_out)
 vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 
+-- end debugger
 
 vim.keymap.set("n", "<space><esc>", "<cmd>noh<CR>")
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR><cmd>echo \"ran file\"<CR>")
@@ -87,13 +88,11 @@ end
 )
 
 
-local job_id = 0
 vim.keymap.set("n", "<space>t", function()
   vim.cmd.vnew()
   vim.cmd.term()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 24)
-  job_id = vim.bo.channel
 end)
 
 
