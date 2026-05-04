@@ -11,9 +11,20 @@ return {
       },
     } },
     config = function()
-      require("lspconfig").lua_ls.setup {}
-      require("lspconfig").clangd.setup {}
-      require("lspconfig").pylsp.setup {}
+      vim.lsp.config['lua_ls'] = {}
+      vim.lsp.config['clangd'] = {}
+      vim.lsp.enable{'clangd'}
+      vim.lsp.config['pylsp'] = {
+
+        settings = {
+          pylsp = {
+            plugins = {
+              rope_autoimport = { enabled = true },
+              rope_completion = { enabled = true },
+            }
+          }
+        }
+      }
       vim.keymap.set("n", "<space>f", function()
         vim.lsp.buf.format()
         print("formatted")

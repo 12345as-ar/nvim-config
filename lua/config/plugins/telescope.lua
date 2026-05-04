@@ -16,7 +16,7 @@ return {
         }
       }
       vim.keymap.set("n", "<space>sd", ":cd %:p:h<CR>")
-      vim.keymap.set("n", "<space>sh", require("telescope.builtin").help_tags)
+      --vim.keymap.set("n", "<space>sh", require("telescope.builtin").help_tags)
       vim.keymap.set("n", "<space>sn", require("telescope.builtin").find_files)
       vim.keymap.set("n", "<space>sen", function()
         require("telescope.builtin").find_files {

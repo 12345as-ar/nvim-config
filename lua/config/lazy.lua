@@ -27,6 +27,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { "mfussenegger/nvim-dap-python", config = function() require("dap-python").setup("~/python_venv/bin/python3.12") end },
+    { "mfussenegger/nvim-jdtls", ft = "java", },
     { "rcarriga/nvim-dap-ui",         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },                config = function()
       require("lazydev").setup({ library = { "nvim-dap-ui" } })
       require("dapui").setup()
