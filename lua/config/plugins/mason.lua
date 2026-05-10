@@ -6,6 +6,8 @@ return {
       ensure_installed = {
         "jdtls",
         "lemminx",
+        "pyright",
+        "cmp_nvim_lsp",
       },
     },
   },
